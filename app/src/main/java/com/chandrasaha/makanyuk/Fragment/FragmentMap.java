@@ -86,7 +86,6 @@ public class FragmentMap extends Fragment{
     }
 
     public FragmentMap() {
-        // Required empty public constructor
     }
 
     @Override
@@ -176,9 +175,6 @@ public class FragmentMap extends Fragment{
             public void success(Response response, Response response2) {
                 StringBuilder sb = rc.toStringBuilder(response);
                 results = sb.toString();
-                String data = "";
-
-
                 try {
                     JSONObject jsonobj = new JSONObject(results);
                     JSONObject jsonobj2 = jsonobj.getJSONObject("response");
@@ -249,8 +245,6 @@ public class FragmentMap extends Fragment{
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
                     .draggable(false))
                     .showInfoWindow();
-            int colour = (Color.parseColor("#20A294") & 0x00FFFFFF) | 0x0D000000;
-            int colour2 = (Color.parseColor("#20A294") & 0x00FFFFFF) | 0x1A000000;
             map.addCircle(new CircleOptions().radius(radius * 100).center(position));
         }
     }

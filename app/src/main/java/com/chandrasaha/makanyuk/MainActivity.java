@@ -35,7 +35,7 @@ import java.util.logging.Handler;
 public class MainActivity extends AppCompatActivity {
     private Fragment f;
     private Drawer result = null;
-    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    private static final int TIME_INTERVAL = 2000; //
     private long mBackPressed;
 
     @Override
@@ -86,37 +86,26 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem)
                     {
-                        // do something with the clicked item :D
-
-
                         if (drawerItem != null && drawerItem instanceof Nameable)
                         {
-                            //getSupportActionBar().setTitle((CharSequence) ((Nameable) drawerItem).getName());
 
-                            //ignore the FragmentTerdekat and it's layout it's just to showcase the handle with an keyboard
-                            // Toast.makeText(getApplicationContext(), link_action[position],
-                            //       Toast.LENGTH_LONG).show();
                             Fragment f = null;
                             switch (drawerItem.getIdentifier())
                             {
                                 case 1:
                                     f = FragmentHome.newInstance(getApplicationContext(), "");
-
                                     toolbar.setTitle("Home");
                                     break;
                                 case 2:
                                     f = FragmentTerdekat.newInstance(getApplicationContext(), "");
-
                                     toolbar.setTitle("Tempat Makan Terdekat");
                                     break;
                                 case 3:
-                                    f = FragmentMap
-                                            .newInstance(getApplicationContext(), "");
+                                    f = FragmentMap.newInstance(getApplicationContext(), "");
                                     toolbar.setTitle("Map");
                                     break;
                                 case 5:
-                                    f = FragmentBantuan
-                                            .newInstance(getApplicationContext(), "");
+                                    f = FragmentBantuan.newInstance(getApplicationContext(), "");
                                     toolbar.setTitle("Tentang" +
                                             "");
                                     break;
@@ -144,19 +133,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
             return false;
         }

@@ -32,7 +32,6 @@ public class FragmentHome extends Fragment implements View.OnClickListener {
     {
         FragmentHome f = new FragmentHome();
         ctx = context;
-
         Bundle args = new Bundle();
         args.putString(KEY_TITLE, title);
         f.setArguments(args);

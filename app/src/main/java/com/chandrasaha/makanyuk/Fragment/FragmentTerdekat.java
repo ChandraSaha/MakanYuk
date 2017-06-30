@@ -146,7 +146,6 @@ public class FragmentTerdekat extends Fragment{
             public void success(Response response, Response response2) {
                 StringBuilder sb = rc.toStringBuilder(response);
                 results = sb.toString();
-                String data = "";
                 try {
                     JSONObject jsonobj = new JSONObject(results);
                     JSONObject jsonobj2 = jsonobj.getJSONObject("response");
@@ -325,12 +324,8 @@ public class FragmentTerdekat extends Fragment{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if(id ==R.id.action_search){
-            /*MenuItem item = menu.findItem(R.id.action_search);*/
             android.support.v7.widget.SearchView sv = new android.support.v7.widget.SearchView(((AppCompatActivity) getActivity()).getSupportActionBar().getThemedContext());
             MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW | MenuItemCompat.SHOW_AS_ACTION_IF_ROOM);
             MenuItemCompat.setActionView(item, sv);
@@ -347,7 +342,6 @@ public class FragmentTerdekat extends Fragment{
                 }
             });
         }
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             loadfromApi("");
             return true;

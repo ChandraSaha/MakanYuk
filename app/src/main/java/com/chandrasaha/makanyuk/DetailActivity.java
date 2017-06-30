@@ -80,7 +80,6 @@ public class DetailActivity extends AppCompatActivity {
         tvSeeAllReview = (TextView) findViewById(R.id.tvSeeAllReview);
         bNav = (Button) findViewById(R.id.bNav);
 
-
         Intent i = getIntent();
         idPlace = i.getStringExtra("idPlace");
         loadFromApi();
@@ -94,9 +93,6 @@ public class DetailActivity extends AppCompatActivity {
             SupportMapFragment supportMapFragment = (SupportMapFragment) fragmentManager
                     .findFragmentById(R.id.maps);
             map = supportMapFragment.getMap();
-            if (map != null) {
-                //setupMap();
-            }
         }
     }
 
@@ -148,7 +144,6 @@ public class DetailActivity extends AppCompatActivity {
                         for(int j=0;j<jsonObject1.getJSONArray("items").length();j++){
                             reviewList.add(jsonObject1.getJSONArray("items").getJSONObject(j).getString("text") + "");
                             String fn = jsonObject1.getJSONArray("items").getJSONObject(j).getJSONObject("user").getString("firstName");
-                            //String ln = jsonObject1.getJSONArray("items").getJSONObject(j).getJSONObject("user").getString("lastName");
                             userList.add(fn);
                         }
                         tvSeeAllReview.setOnClickListener(new View.OnClickListener() {
@@ -163,14 +158,12 @@ public class DetailActivity extends AppCompatActivity {
                         });
                     }
 
-
                 } catch (JSONException e1) {
                     e1.printStackTrace();
                 }
                 dialog.dismiss();
 
             }
-
             @Override
             public void failure(RetrofitError error) {
                 Toast.makeText(getApplicationContext(), "error connection " + "", Toast.LENGTH_LONG).show();
@@ -185,19 +178,12 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_detail, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-
         return super.onOptionsItemSelected(item);
     }
 }

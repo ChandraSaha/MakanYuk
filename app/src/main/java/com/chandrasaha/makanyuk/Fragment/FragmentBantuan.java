@@ -37,7 +37,6 @@ public class FragmentBantuan extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        //ThemeManager.init(getActivity(), 1, 0, null);
         final View viewRoot = inflater.inflate(R.layout.fragment_bantuan, container, false);
 
         return viewRoot;
